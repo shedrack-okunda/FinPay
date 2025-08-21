@@ -4,7 +4,7 @@ import {
 	getWalletBalance,
 	fundWallet,
 	convertFunds,
-} from "../controllers/walletController.js";
+} from "../controllers/walletController";
 
 const router = express.Router();
 

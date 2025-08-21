@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import type { ITransaction } from "../types/index.js";
+import type { ITransaction } from "../types/index";
 
 const transactionSchema = new Schema<ITransaction>(
 	{

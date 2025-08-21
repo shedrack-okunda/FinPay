@@ -1,12 +1,12 @@
 import type { Response, NextFunction } from "express";
-import Card from "../models/Card.js";
-import Wallet from "../models/Wallet.js";
+import Card from "../models/Card";
+import Wallet from "../models/Wallet";
 import {
 	generateCardNumber,
 	generateCVV,
 	generateExpiryDate,
-} from "../utils/cardHelpers.js";
-import type { AuthRequest } from "../types/index.js";
+} from "../utils/cardHelpers";
+import type { AuthRequest } from "../types/index";
 
 export const getCards = async (
 	req: AuthRequest,

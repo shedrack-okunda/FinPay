@@ -5,7 +5,7 @@ import {
 	getBeneficiaryById,
 	updateBeneficiary,
 	deleteBeneficiary,
-} from "../controllers/beneficiaryController.js";
+} from "../controllers/beneficiaryController";
 
 const router = Router();
 

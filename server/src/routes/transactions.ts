@@ -1,10 +1,10 @@
-import { authenticateToken } from "./../middleware/auth.js";
+import { authenticateToken } from "./../middleware/auth";
 import { Router } from "express";
 import {
 	getTransactions,
 	sendMoney,
 	getTransactionById,
-} from "../controllers/transactionController.js";
+} from "../controllers/transactionController";
 
 const router = Router();
 

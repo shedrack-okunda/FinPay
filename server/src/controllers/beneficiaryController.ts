@@ -1,6 +1,6 @@
 import type { NextFunction, Response } from "express";
-import type { AuthRequest } from "../types/index.js";
-import Beneficiary from "../models/Beneficiary.js";
+import type { AuthRequest } from "../types/index";
+import Beneficiary from "../models/Beneficiary";
 
 // Create a beneficiary
 export const createBeneficiary = async (

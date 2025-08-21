@@ -3,7 +3,7 @@ import {
 	upsertExchangeRate,
 	getExchangeRate,
 	getAllExchangeRates,
-} from "../controllers/exchangeRateController.js";
+} from "../controllers/exchangeRateController";
 
 const router = Router();
 

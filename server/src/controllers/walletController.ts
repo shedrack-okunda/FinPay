@@ -1,9 +1,9 @@
 import type { Response, NextFunction } from "express";
-import Wallet from "../models/Wallet.js";
-import Transaction from "../models/Transaction.js";
-import { generateReference } from "../utils/helpers.js";
-import { getSocketIO } from "../services/socketService.js";
-import type { AuthRequest } from "../types/index.js";
+import Wallet from "../models/Wallet";
+import Transaction from "../models/Transaction";
+import { generateReference } from "../utils/helpers";
+// import { getSocketIO } from "../services/socketService";
+import type { AuthRequest } from "../types/index";
 
 export const getWallets = async (
 	req: AuthRequest,
@@ -96,11 +96,11 @@ export const fundWallet = async (
 		await transaction.save();
 
 		// Emit real-time update
-		const io = getSocketIO();
-		io.to(req.user!.userId).emit("walletUpdate", {
-			currency: wallet.currency,
-			balance: wallet.balance,
-		});
+		// const io = getSocketIO();
+		// io.to(req.user!.userId).emit("walletUpdate", {
+		// 	currency: wallet.currency,
+		// 	balance: wallet.balance,
+		// });
 
 		res.json({
 			message: "Wallet funded successfully",
@@ -181,13 +181,13 @@ export const convertFunds = async (
 		await transaction.save();
 
 		// Emit real-time updates
-		const io = getSocketIO();
-		io.to(req.user!.userId).emit("walletUpdate", {
-			wallets: [
-				{ currency: fromWallet.currency, balance: fromWallet.balance },
-				{ currency: toWallet.currency, balance: toWallet.balance },
-			],
-		});
+		// const io = getSocketIO();
+		// io.to(req.user!.userId).emit("walletUpdate", {
+		// 	wallets: [
+		// 		{ currency: fromWallet.currency, balance: fromWallet.balance },
+		// 		{ currency: toWallet.currency, balance: toWallet.balance },
+		// 	],
+		// });
 
 		res.json({
 			message: "Funds converted successfully",

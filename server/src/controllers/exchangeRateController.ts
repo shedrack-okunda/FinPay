@@ -1,6 +1,6 @@
-import ExchangeRate from "../models/ExchangeRate.js";
+import ExchangeRate from "../models/ExchangeRate";
 import type { NextFunction, Response } from "express";
-import type { AuthRequest } from "../types/index.js";
+import type { AuthRequest } from "../types/index";
 
 // Create or update exchange rate
 export const upsertExchangeRate = async (

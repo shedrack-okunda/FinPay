@@ -1,6 +1,6 @@
 import crypto from "crypto";
-import User from "../models/User.js";
-import Invoice from "../models/Invoice.js";
+import User from "../models/User";
+import Invoice from "../models/Invoice";
 import jwt from "jsonwebtoken";
 
 export const generateReference = (): string => {

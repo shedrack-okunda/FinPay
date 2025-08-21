@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import type { IWallet } from "../types/index.js";
+import type { IWallet } from "../types/index";
 
 const walletSchema = new Schema<IWallet>(
 	{

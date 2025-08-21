@@ -2,17 +2,17 @@
 	"name": "server",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "app.ts",
 	"scripts": {
-		"dev": "nodemon src/server.ts",
-		"start": "node dist/server.js",
+		"dev": "nodemon --watch src --ext ts --exec \"ts-node src/app.ts\"",
+		"start": "node dist/app.js",
 		"build": "tsc",
 		"test": "jest"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
-	"type": "module",
+	"type": "commonjs",
 	"dependencies": {
 		"bcryptjs": "^3.0.2",
 		"cors": "^2.8.5",

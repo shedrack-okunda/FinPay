@@ -1,6 +1,6 @@
-import { authenticateToken } from "./../middleware/auth.js";
+import { authenticateToken } from "./../middleware/auth";
 import { Router } from "express";
-import { getDashboardStats } from "../controllers/dashboardController.js";
+import { getDashboardStats } from "../controllers/dashboardController";
 
 const router = Router();
 

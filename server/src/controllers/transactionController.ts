@@ -1,10 +1,10 @@
 import type { Response, NextFunction } from "express";
-import Transaction from "../models/Transaction.js";
-import Wallet from "../models/Wallet.js";
-import Beneficiary from "../models/Beneficiary.js";
-import { generateReference } from "../utils/helpers.js";
-import { getSocketIO } from "../services/socketService.js";
-import type { AuthRequest } from "../types/index.js";
+import Transaction from "../models/Transaction";
+import Wallet from "../models/Wallet";
+import Beneficiary from "../models/Beneficiary";
+import { generateReference } from "../utils/helpers";
+// import { getSocketIO } from "../services/socketService";
+import type { AuthRequest } from "../types/index";
 
 export const getTransactions = async (
 	req: AuthRequest,
@@ -108,11 +108,11 @@ export const sendMoney = async (
 			transaction.status = "completed";
 			await transaction.save();
 
-			const io = getSocketIO();
-			io.to(req.user!.userId).emit("transactionUpdate", {
-				transactionId: transaction._id,
-				status: "completed",
-			});
+			// const io = getSocketIO();
+			// io.to(req.user!.userId).emit("transactionUpdate", {
+			// 	transactionId: transaction._id,
+			// 	status: "completed",
+			// });
 		}, 2000);
 
 		res.json({

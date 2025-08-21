@@ -1,10 +1,10 @@
-import { authenticateToken } from "./../middleware/auth.js";
+import { authenticateToken } from "./../middleware/auth";
 import { Router } from "express";
 import {
 	getCards,
 	createCard,
 	toggleCardStatus,
-} from "../controllers/cardController.js";
+} from "../controllers/cardController";
 
 const router = Router();
 

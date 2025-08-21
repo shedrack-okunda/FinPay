@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import type { IBeneficiary } from "../types/index.js";
+import type { IBeneficiary } from "../types/index";
 
 const beneficiarySchema = new Schema<IBeneficiary>(
 	{

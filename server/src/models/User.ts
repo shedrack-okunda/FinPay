@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema } from "mongoose";
 import bcrypt from "bcryptjs";
-import type { IUser } from "../types/index.js";
+import type { IUser } from "../types/index";
 
 export interface IUserDocument extends IUser, Document {
 	_id: string;

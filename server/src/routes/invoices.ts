@@ -1,11 +1,11 @@
-import { authenticateToken } from "./../middleware/auth.js";
+import { authenticateToken } from "./../middleware/auth";
 import { Router } from "express";
 import {
 	getInvoices,
 	createInvoice,
 	updateInvoice,
 	deleteInvoice,
-} from "../controllers/invoiceController.js";
+} from "../controllers/invoiceController";
 
 const router = Router();
 

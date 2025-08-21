@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import crypto from "crypto";
-import type { ICard } from "../types/index.js";
+import type { ICard } from "../types/index";
 
 const cardSchema = new Schema<ICard>(
 	{

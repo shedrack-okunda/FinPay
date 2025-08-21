@@ -1,6 +1,6 @@
-import Notification from "../models/Notification.js";
+import Notification from "../models/Notification";
 import type { NextFunction, Response } from "express";
-import type { AuthRequest } from "../types/index.js";
+import type { AuthRequest } from "../types/index";
 
 // Create a notification
 export const createNotification = async (

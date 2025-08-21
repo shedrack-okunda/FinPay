@@ -1,10 +1,10 @@
 import type { Response, NextFunction } from "express";
-import Wallet from "../models/Wallet.js";
-import Transaction from "../models/Transaction.js";
-import Invoice from "../models/Invoice.js";
-import Card from "../models/Card.js";
-import ExchangeRate from "../models/ExchangeRate.js";
-import type { AuthRequest } from "../types/index.js";
+import Wallet from "../models/Wallet";
+import Transaction from "../models/Transaction";
+import Invoice from "../models/Invoice";
+import Card from "../models/Card";
+import ExchangeRate from "../models/ExchangeRate";
+import type { AuthRequest } from "../types/index";
 
 export const getDashboardStats = async (
 	req: AuthRequest,

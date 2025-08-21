@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import type { IInvoice } from "../types/index.js";
+import type { IInvoice } from "../types/index";
 
 const invoiceItemSchema = new Schema({
 	description: { type: String, required: true, trim: true },

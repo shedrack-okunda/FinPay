@@ -1,8 +1,8 @@
 import type { Response, NextFunction } from "express";
-import Invoice from "../models/Invoice.js";
-import { generateInvoiceNumber } from "../utils/helpers.js";
-// import { sendInvoiceEmail } from "../services/emailService.js";
-import type { AuthRequest } from "../types/index.js";
+import Invoice from "../models/Invoice";
+import { generateInvoiceNumber } from "../utils/helpers";
+// import { sendInvoiceEmail } from "../services/emailService";
+import type { AuthRequest } from "../types/index";
 
 export const getInvoices = async (
 	req: AuthRequest,

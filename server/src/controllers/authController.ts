@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
 import Joi from "joi";
-import User from "../models/User.js";
-import Wallet from "../models/Wallet.js";
-import { generateFinpayTag, generateTokens } from "../utils/helpers.js";
+import User from "../models/User";
+import Wallet from "../models/Wallet";
+import { generateFinpayTag, generateTokens } from "../utils/helpers";
 import type { NextFunction, Request, Response } from "express";
 
 const registerSchema = Joi.object({

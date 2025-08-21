@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import type { IExchangeRate } from "../types/index.js";
+import type { IExchangeRate } from "../types/index";
 
 const exchangeRateSchema = new Schema<IExchangeRate>({
 	fromCurrency: { type: String, required: true },
