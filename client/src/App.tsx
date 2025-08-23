@@ -7,6 +7,8 @@ import {
 import Layout from "./components/layout/Layout";
 import Dashboard from "./pages/dashboard/Dashboard";
 import TransactionsPage from "./pages/transaction/Transaction";
+import LoginPage from "./pages/auth/Login";
+import RegisterPage from "./pages/auth/Register";
 
 function App() {
 	return (
@@ -16,6 +18,10 @@ function App() {
 					path="/"
 					element={<Navigate to="/dashboard" replace />}
 				/>
+
+				<Route path='/login' element={ <LoginPage/>} />
+				<Route path='/register' element={ <RegisterPage/>} />
+
 				<Route
 					path="/dashboard"
 					element={
