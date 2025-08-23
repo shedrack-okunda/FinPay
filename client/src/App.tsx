@@ -9,6 +9,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import TransactionsPage from "./pages/transaction/Transaction";
 import LoginPage from "./pages/auth/Login";
 import RegisterPage from "./pages/auth/Register";
+import WalletsPage from "./pages/wallet/Wallet";
 
 function App() {
 	return (
@@ -19,8 +20,8 @@ function App() {
 					element={<Navigate to="/dashboard" replace />}
 				/>
 
-				<Route path='/login' element={ <LoginPage/>} />
-				<Route path='/register' element={ <RegisterPage/>} />
+				<Route path="/login" element={<LoginPage />} />
+				<Route path="/register" element={<RegisterPage />} />
 
 				<Route
 					path="/dashboard"
@@ -57,9 +58,7 @@ function App() {
 					path="/wallets"
 					element={
 						<Layout title="Wallets" subtitle="Your wallets">
-							<div className="p-6 bg-white rounded-lg shadow">
-								<p>Wallets page (to be implemented)</p>
-							</div>
+							<WalletsPage />
 						</Layout>
 					}
 				/>
