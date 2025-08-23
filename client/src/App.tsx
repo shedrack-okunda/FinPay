@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Dashboard from "./pages/dashboard/Dashboard";
+import TransactionsPage from "./pages/transaction/Transaction";
 
 function App() {
 	return (
@@ -62,9 +63,7 @@ function App() {
 						<Layout
 							title="Transactions"
 							subtitle="Your recent activity">
-							<div className="p-6 bg-white rounded-lg shadow">
-								<p>Transactions page (to be implemented)</p>
-							</div>
+							<TransactionsPage />
 						</Layout>
 					}
 				/>
