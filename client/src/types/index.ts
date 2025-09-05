@@ -31,6 +31,10 @@ export interface Transaction {
 		name: string;
 		_id: string;
 	};
+	fromWallet?: {
+		currency: string;
+		_id: string;
+	};
 	createdAt: string;
 }
 
