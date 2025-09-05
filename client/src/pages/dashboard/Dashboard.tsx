@@ -109,7 +109,7 @@ export default function Dashboard() {
 					/>
 				</div>
 				<div>
-					<QuickActions />
+					<QuickActions variant="inline" />
 				</div>
 			</div>
 

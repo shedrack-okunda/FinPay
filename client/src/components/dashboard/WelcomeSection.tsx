@@ -6,19 +6,31 @@ const WelcomeSection = () => {
 
 	const getGreeting = () => {
 		const hour = new Date().getHours();
-		if (hour < 12) return "Good morning";
-		if (hour < 17) return "Good afternoon";
-		return "Good evening";
+		if (hour < 12)
+			return {
+				greeting: "Good morning",
+				message: "Have a great time managing your finances.",
+			};
+		if (hour < 17)
+			return {
+				greeting: "Good afternoon",
+				message:
+					"Hope you’re enjoying the way the transaction is smooth.",
+			};
+		return {
+			greeting: "Good evening",
+			message: "Thank you for transacting with FinPay.",
+		};
 	};
+
+	const { greeting, message } = getGreeting();
 
 	return (
 		<div className="mb-8">
-			<h1 className="text-3xl font-bold text-gray-900">
-				{getGreeting()}, {user?.firstName}!
+			<h1 className="text-2xl font-bold text-gray-900">
+				{greeting}, {user?.firstName || "User"}!
 			</h1>
-			<p className="text-gray-600 mt-1">
-				Have a great day managing your finances
-			</p>
+			<p className="text-gray-600 mt-1">{message}</p>
 		</div>
 	);
 };
