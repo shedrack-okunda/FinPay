@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth } from "../../hooks/useAuth";
 
-const WelcomeSection = () => {
+const WelcomeSection: React.FC = () => {
 	const { user } = useAuth();
 
 	const getGreeting = () => {
@@ -30,7 +30,7 @@ const WelcomeSection = () => {
 			<h1 className="text-2xl font-bold text-gray-900">
 				{greeting}, {user?.firstName || "User"}!
 			</h1>
-			<p className="text-gray-600 mt-1">{message}</p>
+			<p className="text-gray-800 mt-1">{message}</p>
 		</div>
 	);
 };

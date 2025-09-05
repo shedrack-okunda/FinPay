@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "../../hooks/useAuth";
 
-const Sidebar = () => {
+const Sidebar: React.FC = () => {
 	const [isMobileOpen, setIsMobileOpen] = useState(false);
 	const location = useLocation();
 	const navigate = useNavigate();

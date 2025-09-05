@@ -9,7 +9,7 @@ interface HeaderProps {
 	showGreeting?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, subtitle, showGreeting }) => {
+const Header: React.FC<HeaderProps> = ({ title, showGreeting }) => {
 	return (
 		<header className="bg-white border-b border-[#D0D5DD] shadow-sm w-full h-[110px] flex items-center px-6">
 			<div className="flex items-center justify-between w-full">
@@ -19,14 +19,9 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle, showGreeting }) => {
 						<WelcomeSection />
 					) : (
 						<>
-							<h1 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900">
+							<h1 className="text-lg md:text-2xl font-semibold text-gray-900">
 								{title}
 							</h1>
-							{subtitle && (
-								<p className="text-xs sm:text-sm md:text-base text-gray-600 mt-1">
-									{subtitle}
-								</p>
-							)}
 						</>
 					)}
 				</div>
