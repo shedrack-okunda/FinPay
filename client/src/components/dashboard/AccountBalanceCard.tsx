@@ -23,8 +23,8 @@ const AccountBalanceCard: React.FC<AccountBalanceCardProps> = ({
 	);
 
 	return (
-		<div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-6 text-white shadow-lg">
-			<h3 className="text-lg font-medium mb-4">Account Balance</h3>
+		<div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-6 text-blue shadow-lg">
+			<h3 className="text-lg font-semibold mb-4">Account Balance</h3>
 			<div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
 				{wallets.map((wallet) => (
 					<div

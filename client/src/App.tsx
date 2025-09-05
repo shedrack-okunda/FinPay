@@ -10,6 +10,8 @@ import TransactionsPage from "./pages/transaction/Transaction";
 import LoginPage from "./pages/auth/Login";
 import RegisterPage from "./pages/auth/Register";
 import WalletsPage from "./pages/wallet/Wallet";
+import CardsPage from "./pages/card/CardPage";
+import InvoicesPage from "./pages/invoices/InvoicePage";
 
 function App() {
 	return (
@@ -38,9 +40,7 @@ function App() {
 						<Layout
 							title="Invoices"
 							subtitle="Manage your invoices">
-							<div className="p-6 bg-white rounded-lg shadow">
-								<p>Invoices page (to be implemented)</p>
-							</div>
+						<InvoicesPage/>
 						</Layout>
 					}
 				/>
@@ -48,9 +48,7 @@ function App() {
 					path="/cards"
 					element={
 						<Layout title="Cards" subtitle="Your cards overview">
-							<div className="p-6 bg-white rounded-lg shadow">
-								<p>Cards page (to be implemented)</p>
-							</div>
+							<CardsPage />
 						</Layout>
 					}
 				/>

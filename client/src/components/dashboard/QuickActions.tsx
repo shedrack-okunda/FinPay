@@ -10,14 +10,16 @@ const QuickActions: React.FC = () => {
 
 	return (
 		<div className="bg-white rounded-2xl shadow p-6">
-			<h3 className="text-lg font-medium mb-4">Quick Actions</h3>
+			<h3 className="text-lg font-semibold text-gray-900 mb-4">
+				Quick Actions
+			</h3>
 			<div className="flex flex-col gap-3">
 				{actions.map((action, idx) => (
 					<button
 						key={idx}
-						className="flex items-center gap-2 px-4 py-2 rounded-lg border hover:bg-gray-50 transition">
-						{action.icon}
-						<span>{action.label}</span>
+						className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-primary-50 hover:text-primary-700 hover:border-primary-200 transition">
+						<span className="text-primary-600">{action.icon}</span>
+						<span className="font-medium">{action.label}</span>
 					</button>
 				))}
 			</div>

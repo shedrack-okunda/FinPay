@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle, showGreeting }) => {
 
 				<div className="flex items-center space-x-4">
 					{/* Notifications */}
-					<button className="relative p-2 text-gray-400 hover:text-gray-500 transition-colors">
+					<button className="relative p-2 text-gray-400 hover:text-gray-600 transition-colors">
 						<Bell className="h-6 w-6" />
 						<span className="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
 					</button>
@@ -42,8 +42,8 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle, showGreeting }) => {
 					{/* User dropdown */}
 					<div className="relative">
 						<button className="flex items-center space-x-2 text-sm text-gray-700 hover:text-gray-900 transition-colors">
-							<div className="h-8 w-8 rounded-full bg-primary-100 flex items-center justify-center">
-								<span className="text-sm font-medium text-primary-600">
+							<div className="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center">
+								<span className="text-sm font-medium text-indigo-600">
 									{user?.firstName?.[0]}
 									{user?.lastName?.[0]}
 								</span>
