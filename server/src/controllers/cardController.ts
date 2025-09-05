@@ -58,12 +58,15 @@ export const createCard = async (
 				.json({ message: "Insufficient balance for card fee" });
 		}
 
+		const plainCardNumber = generateCardNumber(cardBrand);
+		const maskedNumber = `****-****-****-${plainCardNumber.slice(-4)}`;
+
 		const card = new Card({
 			userId: req.user!.userId,
 			cardName,
 			cardType,
 			cardBrand,
-			cardNumber: generateCardNumber(cardBrand),
+			cardNumber: plainCardNumber,
 			expiryDate: generateExpiryDate(),
 			cvv: generateCVV(),
 			currency: currency.toUpperCase(),
@@ -86,7 +89,7 @@ export const createCard = async (
 				currency: card.currency,
 				balance: card.balance,
 				fee: card.fee,
-				maskedNumber: `****-****-****-${card.cardNumber.slice(-4)}`,
+				maskedNumber,
 			},
 		});
 	} catch (error) {

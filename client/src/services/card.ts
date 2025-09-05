@@ -20,7 +20,7 @@ export const cardService = {
 	},
 
 	async toggleCardStatus(id: string, isActive: boolean) {
-		const response = await api.put(`/cards/${id}`, { isActive });
+		const response = await api.patch(`/cards/${id}/status`, { isActive });
 		return response.data;
 	},
 };
