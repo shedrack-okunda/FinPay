@@ -52,18 +52,27 @@ const TransactionTable: React.FC<Props> = ({
 									<tr
 										key={tx.reference}
 										className="border-b hover:bg-gray-50 transition-colors">
+										{/* Date */}
 										<td className="p-3">
 											{format(
 												new Date(tx.createdAt),
 												"MMM d, yyyy"
 											)}
 										</td>
+
+										{/* Sender */}
 										<td className="p-3">
-											{tx?.fromWallet?.currency || "—"}
+											{tx.fromWallet?.currency ||
+												tx.fromWallet?.currency ||
+												"—"}
 										</td>
+
+										{/* Receiver */}
 										<td className="p-3">
 											{tx.beneficiaryId?.name || "—"}
 										</td>
+
+										{/* Amount */}
 										<td
 											className={`p-3 font-bold ${
 												tx.type === "receive"
@@ -73,9 +82,13 @@ const TransactionTable: React.FC<Props> = ({
 											{tx.type === "receive" ? "+" : "-"}{" "}
 											{tx.amount} {tx.currency}
 										</td>
+
+										{/* Status */}
 										<td className="p-3 capitalize">
 											{tx.status}
 										</td>
+
+										{/* Type */}
 										<td className="p-3 capitalize">
 											{tx.type}
 										</td>
