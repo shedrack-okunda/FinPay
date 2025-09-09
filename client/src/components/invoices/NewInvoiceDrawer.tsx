@@ -60,7 +60,16 @@ const NewInvoiceDrawer = ({ open, onClose }: Props) => {
 				customerEmail: form.customerEmail,
 				billingAddress: form.billingAddress,
 				dueDate: form.dueDate,
-				total: form.total,
+				currency: "USD",
+				items: [
+					{
+						description: "General service/product",
+						quantity: 1,
+						rate: form.total,
+						amount: form.total,
+					},
+				],
+				tax: 0,
 			};
 
 			await invoiceService.createInvoice(payload);
