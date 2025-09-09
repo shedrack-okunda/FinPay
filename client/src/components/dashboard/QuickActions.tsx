@@ -36,19 +36,19 @@ const QuickActions: React.FC<QuickActionsProps> = ({
 
 	const actions = [
 		{
-			icon: <Send className="h-5 w-5 text-[#7105E9]" />,
+			icon: <Send className="h-5 w-5 text-indigo-700" />,
 			label: "Send Money",
 		},
 		{
-			icon: <PlusCircle className="h-5 w-5 text-[#7105E9]" />,
+			icon: <PlusCircle className="h-5 w-5 text-indigo-700" />,
 			label: "Fund Wallet",
 		},
 		{
-			icon: <Repeat className="h-5 w-5 text-[#7105E9]" />,
+			icon: <Repeat className="h-5 w-5 text-indigo-700" />,
 			label: "Convert Funds",
 		},
 		{
-			icon: <FileText className="h-5 w-5 text-[#7105E9]" />,
+			icon: <FileText className="h-5 w-5 text-indigo-700" />,
 			label: "Create Invoice",
 		},
 	];
@@ -56,15 +56,19 @@ const QuickActions: React.FC<QuickActionsProps> = ({
 	//  Inline mode for dashboard
 	if (variant === "inline") {
 		return (
-			<div className="flex flex-col gap-3">
-				{actions.map((action, idx) => (
-					<button
-						key={idx}
-						className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition">
-						{action.icon}
-						<span>{action.label}</span>
-					</button>
-				))}
+			<div className="flex gap-3">
+				{actions
+					.filter((a) =>
+						["Send Money", "Convert Funds"].includes(a.label)
+					)
+					.map((action, idx) => (
+						<button
+							key={idx}
+							className="flex font-bold items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 text-indigo-700 hover:bg-gray-100 bg-gray-200 transition">
+							{action.icon}
+							<span>{action.label}</span>
+						</button>
+					))}
 			</div>
 		);
 	}
