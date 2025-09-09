@@ -5,6 +5,7 @@ import type { Invoice } from "../../types";
 import InvoiceList from "../../components/invoices/InvoiceList";
 import type { InvoiceTab } from "../../components/invoices/InvoiceTabs";
 import InvoiceTabs from "../../components/invoices/InvoiceTabs";
+import NewInvoiceDrawer from "../../components/invoices/NewInvoiceDrawer";
 
 const InvoicesPage: React.FC = () => {
 	const [invoices, setInvoices] = useState<Invoice[]>([]);
@@ -14,6 +15,7 @@ const InvoicesPage: React.FC = () => {
 	const [statusFilter, setStatusFilter] = useState("");
 	const [page, setPage] = useState(1);
 	const [totalPages, setTotalPages] = useState(1);
+	const [openDrawer, setOpenDrawer] = useState(false);
 
 	useEffect(() => {
 		const fetchInvoices = async () => {
@@ -93,8 +95,14 @@ const InvoicesPage: React.FC = () => {
 					setPage={setPage}
 					totalPages={totalPages}
 					activeTab={activeTab}
+					onNewInvoice={() => setOpenDrawer(true)}
 				/>
 			</div>
+
+			<NewInvoiceDrawer
+				open={openDrawer}
+				onClose={() => setOpenDrawer(false)}
+			/>
 		</div>
 	);
 };

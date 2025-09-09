@@ -9,6 +9,7 @@ interface Props {
 	setPage: (p: number) => void;
 	totalPages: number;
 	activeTab: string;
+	onNewInvoice?: () => void;
 }
 
 const InvoiceList: React.FC<Props> = ({
@@ -18,6 +19,7 @@ const InvoiceList: React.FC<Props> = ({
 	setPage,
 	totalPages,
 	activeTab,
+	onNewInvoice,
 }) => {
 	if (loading) {
 		return <div className="text-gray-500">Loading invoices...</div>;
@@ -32,7 +34,9 @@ const InvoiceList: React.FC<Props> = ({
 					found.
 				</p>
 				{activeTab === "all" && (
-					<button className="mt-4 px-6 py-2 bg-indigo-600 text-white rounded-lg flex items-center gap-2">
+					<button
+						className="mt-4 px-6 py-2 bg-indigo-600 text-white rounded-lg flex items-center gap-2"
+						onClick={onNewInvoice}>
 						New Invoice →
 					</button>
 				)}
