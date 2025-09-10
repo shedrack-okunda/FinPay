@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import NewInvoiceDrawer from "../invoices/NewInvoiceDrawer";
 
 interface Props {
 	summary: {
@@ -9,6 +10,8 @@ interface Props {
 }
 
 const InvoicesSummary: React.FC<Props> = ({ summary }) => {
+	const [openInvoiceDrawer, setOpenInvoiceDrawer] = useState(false);
+
 	const items = [
 		{ label: "Due", value: summary.due, color: "text-primary-600" },
 		{ label: "Overdue", value: summary.overdue, color: "text-red-600" },
@@ -20,20 +23,48 @@ const InvoicesSummary: React.FC<Props> = ({ summary }) => {
 	];
 
 	return (
-		<div className="bg-white rounded-2xl shadow p-6">
-			<h3 className="text-lg font-semibold text-gray-900 mb-4">
-				Invoices Summary
-			</h3>
-			<div className="space-y-2">
-				{items.map((item) => (
-					<div key={item.label} className="flex justify-between">
-						<span className="text-gray-700">{item.label}</span>
-						<span className={`font-bold ${item.color}`}>
-							{item.value}
-						</span>
-					</div>
-				))}
+		<div className="bg-white rounded-2xl shadow overflow-hidden">
+			{/* Full-width header */}
+			<div className="border-b px-6 py-4">
+				<h3 className="text-lg font-semibold text-gray-700">
+					Invoices
+				</h3>
 			</div>
+
+			{/* Body */}
+			<div className="p-6">
+				<div className="space-y-4">
+					{items.map((item, idx) => (
+						<div
+							key={item.label}
+							className={`flex justify-between pb-4 ${
+								idx !== items.length - 1 ? "border-b" : ""
+							}`}>
+							<span className="text-gray-900 text-sm">
+								{item.value} Person
+							</span>
+
+							<span
+								className={`text-xs border px-2 py-1 rounded-full ${item.color}`}>
+								{item.label}
+							</span>
+						</div>
+					))}
+				</div>
+
+				<div className="flex justify-center w-full">
+					<button
+						onClick={() => setOpenInvoiceDrawer(true)}
+						className="px-4 py-2 text-sm w-full rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 mt-4">
+						Create Invoice
+					</button>
+				</div>
+			</div>
+
+			<NewInvoiceDrawer
+				open={openInvoiceDrawer}
+				onClose={() => setOpenInvoiceDrawer(false)}
+			/>
 		</div>
 	);
 };

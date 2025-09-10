@@ -50,9 +50,9 @@ const AccountBalanceCard: React.FC<AccountBalanceCardProps> = ({
 					return (
 						<div
 							key={wallet.currency}
-							className="bg-gray-50 rounded-xl p-4 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+							className="bg-gray-50 rounded-xl  flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
 							{/* Mini-card Header */}
-							<div className="w-full border-b flex items-center gap-2  pb-2 mb-3">
+							<div className="w-full border-b flex items-center gap-2 px-2 py-2 pb-2 mb-3">
 								<div className="text-xl">{meta.emoji}</div>
 								<p className="text-sm font-medium text-gray-500">
 									{meta.label}
@@ -60,15 +60,17 @@ const AccountBalanceCard: React.FC<AccountBalanceCardProps> = ({
 							</div>
 
 							{/* Mini-card Content */}
-							<p className="text-xs text-gray-500">
-								Available Balance
-							</p>
-							<p className="text-xl font-bold text-gray-800 mt-1">
-								{formatCurrency(
-									wallet.balance,
-									wallet.currency
-								)}
-							</p>
+							<div className="p-4">
+								<p className="text-xs text-gray-500">
+									Available Balance
+								</p>
+								<p className="text-xl font-bold text-gray-800 mt-1">
+									{formatCurrency(
+										wallet.balance,
+										wallet.currency
+									)}
+								</p>
+							</div>
 						</div>
 					);
 				})}
