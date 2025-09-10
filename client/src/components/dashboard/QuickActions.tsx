@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 type QuickActionsProps = {
-	variant?: "dropdown" | "inline"; // dropdown = header, inline = dashboard
+	variant?: "dropdown" | "inline-dashboard" | "inline-wallet";
 };
 
 const QuickActions: React.FC<QuickActionsProps> = ({
@@ -53,33 +53,54 @@ const QuickActions: React.FC<QuickActionsProps> = ({
 		},
 	];
 
-	//  Inline mode for dashboard
-	if (variant === "inline") {
+	// Inline on dashboard → show 3 buttons
+if (variant === "inline-dashboard") {
+	const dashboardActions = actions.filter((a) =>
+		["Send Money", "Fund Wallet", "Create Invoice"].includes(a.label)
+	);
+
+	return (
+		<div className="flex flex-wrap gap-3 sm:gap-4 justify-center sm:justify-start">
+			{dashboardActions.map((action, idx) => (
+				<button
+					key={idx}
+					className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg border border-gray-300 text-indigo-700 hover:bg-gray-100 bg-gray-200 transition text-sm sm:text-base font-medium">
+					{action.icon}
+					<span className="whitespace-nowrap">{action.label}</span>
+				</button>
+			))}
+		</div>
+	);
+}
+
+
+	// Inline on wallet → show 2 buttons
+	if (variant === "inline-wallet") {
+		const walletActions = actions.filter((a) =>
+			["Send Money", "Convert Funds"].includes(a.label)
+		);
+
 		return (
 			<div className="flex gap-3">
-				{actions
-					.filter((a) =>
-						["Send Money", "Convert Funds"].includes(a.label)
-					)
-					.map((action, idx) => (
-						<button
-							key={idx}
-							className="flex font-bold items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 text-indigo-700 hover:bg-gray-100 bg-gray-200 transition">
-							{action.icon}
-							<span>{action.label}</span>
-						</button>
-					))}
+				{walletActions.map((action, idx) => (
+					<button
+						key={idx}
+						className="flex font-bold items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 text-indigo-700 hover:bg-gray-100 bg-gray-200 transition">
+						{action.icon}
+						<span>{action.label}</span>
+					</button>
+				))}
 			</div>
 		);
 	}
 
-	//  Dropdown mode for header
+	// Dropdown mode → all actions
 	return (
 		<div className="relative" ref={modalRef}>
 			{/* Trigger button */}
 			<button
 				onClick={() => setIsOpen(!isOpen)}
-				className="flex items-center py-2 px-2 border-1 border-[#D0D5DD] rounded-md bg-[#FFFFFF] text-black font-bold hover:bg-gray-200  transition">
+				className="flex items-center py-2 px-2 border-1 border-[#D0D5DD] rounded-md bg-[#FFFFFF] text-black font-bold hover:bg-gray-200 transition">
 				<ChevronDown className="mr-2 h-4 w-4" />
 				Quick Actions
 			</button>
@@ -89,7 +110,6 @@ const QuickActions: React.FC<QuickActionsProps> = ({
 				<div
 					className="absolute right-0 mt-2 w-[216px] bg-white border border-[#D0D5DD] rounded-lg shadow-md p-4 z-50"
 					style={{ boxShadow: "0px 1px 2px rgba(16, 24, 40, 0.05)" }}>
-					{/* Header with Close button */}
 					<div className="flex justify-between items-center mb-3">
 						<h3 className="text-sm font-semibold text-gray-900">
 							Quick Actions
@@ -101,7 +121,6 @@ const QuickActions: React.FC<QuickActionsProps> = ({
 						</button>
 					</div>
 
-					{/* Actions List */}
 					<div className="flex flex-col gap-2">
 						{actions.map((action, idx) => (
 							<React.Fragment key={idx}>

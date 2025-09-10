@@ -40,7 +40,7 @@ const WalletsPage: React.FC = () => {
 	return (
 		<div className="p-6 space-y-8">
 			{/* Quick actions */}
-			<QuickActions variant="inline" />
+			<QuickActions variant="inline-wallet" />
 
 			{/* Wallet summary cards */}
 			<div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
