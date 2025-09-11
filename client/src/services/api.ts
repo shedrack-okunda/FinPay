@@ -8,6 +8,13 @@ const api = axios.create({
 	timeout: 10000,
 });
 
+// Helper to log out cleanly
+const logout = () => {
+	localStorage.removeItem("accessToken");
+	localStorage.removeItem("refreshToken");
+	window.location.href = "/login";
+};
+
 // Request interceptor to add auth token
 api.interceptors.request.use((config) => {
 	const token = localStorage.getItem("accessToken");
@@ -28,21 +35,26 @@ api.interceptors.response.use(
 
 			try {
 				const refreshToken = localStorage.getItem("refreshToken");
+				if (!refreshToken) {
+					logout();
+					return Promise.reject(error);
+				}
+
 				const response = await axios.post(
 					`${API_BASE_URL}/auth/refresh-token`,
-					{
-						refreshToken,
-					}
+					{ refreshToken },
+					{ headers: { "Content-Type": "application/json" } }
 				);
 
 				const { accessToken } = response.data;
 				localStorage.setItem("accessToken", accessToken);
 
+				// Update original request with new token
+				originalRequest.headers.Authorization = `Bearer ${accessToken}`;
+
 				return api(originalRequest);
 			} catch (refreshError) {
-				localStorage.removeItem("accessToken");
-				localStorage.removeItem("refreshToken");
-				window.location.href = "/login";
+				logout();
 				return Promise.reject(refreshError);
 			}
 		}

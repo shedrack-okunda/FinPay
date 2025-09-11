@@ -13,7 +13,7 @@ interface RegisterFormData {
 	confirmPassword: string;
 }
 
-const RegisterForm = () => {
+const RegisterForm: React.FC = () => {
 	const [showPassword, setShowPassword] = useState(false);
 	const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 	const [loading, setLoading] = useState(false);

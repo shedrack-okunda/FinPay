@@ -105,7 +105,9 @@ const Sidebar: React.FC = () => {
 
 				{/* User profile */}
 				<div className="absolute bottom-0 left-0 right-0 p-4 border-t border-white">
-					<div className="flex items-center space-x-3 mb-3">
+					<Link
+						to="/profile"
+						className="flex items-center space-x-3 mb-3">
 						<div className="flex-shrink-0">
 							{user?.avatar ? (
 								<img
@@ -128,7 +130,7 @@ const Sidebar: React.FC = () => {
 								{user?.email || "johndoe@email.com"}
 							</p>
 						</div>
-					</div>
+					</Link>
 					<button
 						onClick={handleLogout}
 						className="w-full flex items-center px-3 py-2 text-1xl text-indigo-100 hover:bg-indigo-500 rounded-md transition-colors font-bold">
